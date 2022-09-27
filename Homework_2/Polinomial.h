@@ -1,6 +1,9 @@
+#include<vector>
+#ifndef Polinomial_is_defined
+#define Polinomial_is_defined
+
 namespace _Polinomial
 {
-   #include <vector>
    class Polinomial
    {
       private:
@@ -10,6 +13,8 @@ namespace _Polinomial
       	 void add(int coef, int degree);
       	 void print() const;
       	 int calculate(int xValue) const;
-      	 void derive() const;
-   }
+      	 Polinomial derive() const;
+   };
 }
+
+#endif

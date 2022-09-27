@@ -1,9 +1,10 @@
-#include <iostream>
-#include <cmath>
+#include "Polinomial.h"
+#include "Polinomial.cpp"
 
 int main(int argc, char** argv)
 {
-   int N = argv[1];
+   int N;
+   std::cin >> N;
    Polinomial pol;
    int coef{}, degree{};
    for (int i = 1; i <= N; ++i)
@@ -17,9 +18,8 @@ int main(int argc, char** argv)
       }
    }
    pol.print();
-   int value;
-   std::cout << calculate(72) << "\n";
-   pol.derive();
-   pol.print();
+   std::cout << pol.calculate(72) << "\n";
+   Polinomial derive = pol.derive();
+   derive.print();
    return 0;
 }

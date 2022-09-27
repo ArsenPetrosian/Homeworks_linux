@@ -1,4 +1,6 @@
 #include "Polinomial.h"
+#include <cmath>
+#include <iostream>
 
 using namespace _Polinomial;
 
@@ -10,7 +12,7 @@ void Polinomial::add(int coef, int degree)
 
 void Polinomial::print() const
 {
-   for(size_t i = 0; i < _coefs.size(); ++i)
+   for(int i = 0; i < _coefs.size(); ++i)
    {
       if(_coefs[i] != 0)
          std::cout << _coefs[i] << "x^" << _degrees[i];
@@ -24,20 +26,22 @@ int Polinomial::calculate(int xValue) const
 {
    int result = 0;
    int current = 0;
-   for(size_t i = 0; i < _coefs.size(); ++i)
+   for(int i = 0; i < _coefs.size(); ++i)
    {
-      current = std::pow(xValue,degree[i]);
+      current = pow(xValue,_degrees[i]);
       current *= _coefs[i];
       result += current;
    }
    return result;
 }
 
-void Polinomial::derive() const
+Polinomial Polinomial::derive() const
 {
-   for(size_t i = 0; i < _coefs.size(); ++i)
+   Polinomial result;
+   for(int i = 0; i < _coefs.size(); ++i)
    {
-      _coefs[i] *= _degrees[i];
-      --_degrees[i];
+      result._coefs[i] = _coefs[i] * _degrees[i];
+      result._degrees[i] = _degrees[i] - 1;
    }
+   return result;
 }
