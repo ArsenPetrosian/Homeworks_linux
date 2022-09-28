@@ -1,19 +1,20 @@
 #include "Polinomial.h"
-#include "Polinomial.cpp"
+#include <iostream>
+
+using namespace _Polinomial;
 
 int main(int argc, char** argv)
 {
-   int N;
-   std::cin >> N;
+   int N = argv[1][0];
    Polinomial pol;
    int coef{}, degree{};
-   for (int i = 1; i <= N; ++i)
+   for (size_t i = 1; i <= N; ++i)
    {
       if (i % 2 == 1)
-         std::cin >> coef;
+         coef = argv[i + 1][0];
       else
       {
-         std::cin >> degree;
+         degree = argv[i + 1][0];
          pol.add(coef, degree);
       }
    }

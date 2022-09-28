@@ -1,6 +1,6 @@
-#include "Polinomial.h"
-#include <cmath>
 #include <iostream>
+#include <cmath>
+#include "Polinomial.h"
 
 using namespace _Polinomial;
 
