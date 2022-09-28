@@ -5,22 +5,24 @@ using namespace _Polinomial;
 
 int main(int argc, char** argv)
 {
-   int N = argv[1][0];
+   int N{};
+   std::cin >> N;
    Polinomial pol;
    int coef{}, degree{};
-   for (size_t i = 1; i <= N; ++i)
+   for (int i = 1; i <= N * 2; ++i)
    {
       if (i % 2 == 1)
-         coef = argv[i + 1][0];
+         std::cin >> coef;
       else
       {
-         degree = argv[i + 1][0];
+         std::cin >> degree;
          pol.add(coef, degree);
       }
    }
    pol.print();
-   std::cout << pol.calculate(72) << "\n";
+   std::cout << "\n" << pol.calculate(72) << "\n";
    Polinomial derive = pol.derive();
    derive.print();
+   std::cout << "\n";
    return 0;
 }
