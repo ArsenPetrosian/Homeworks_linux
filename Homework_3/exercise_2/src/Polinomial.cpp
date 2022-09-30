@@ -41,9 +41,20 @@ void Polinomial::print() const
       if (_coefs[i] == 1)
          std::cout << "x^" << _degrees[i];
       else if(_coefs[i] != 0)
-         std::cout << _coefs[i] << "x^" << _degrees[i];
+      {
+         std::cout << std::abs(_coefs[i]);
+         if(_degrees[i] > 1)
+            std::cout << "x^" << _degrees[i];
+         else if(_degrees[i] == 1)
+            std::cout << 'x';
+      }
       if(i < _size - 1)
-         std::cout << " + ";
+      {
+         if(_coefs[i + 1] > 0)
+            std::cout << " + ";
+         else
+            std::cout << " - ";
+      }
    }
 }
 
