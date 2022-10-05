@@ -116,6 +116,67 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named Polinomial
+
+# Build rule for target.
+Polinomial: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Polinomial
+.PHONY : Polinomial
+
+# fast build rule for target.
+Polinomial/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Polinomial.dir/build.make CMakeFiles/Polinomial.dir/build
+.PHONY : Polinomial/fast
+
+Pol.o: Pol.cpp.o
+.PHONY : Pol.o
+
+# target to build an object file
+Pol.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Polinomial.dir/build.make CMakeFiles/Polinomial.dir/Pol.cpp.o
+.PHONY : Pol.cpp.o
+
+Pol.i: Pol.cpp.i
+.PHONY : Pol.i
+
+# target to preprocess a source file
+Pol.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Polinomial.dir/build.make CMakeFiles/Polinomial.dir/Pol.cpp.i
+.PHONY : Pol.cpp.i
+
+Pol.s: Pol.cpp.s
+.PHONY : Pol.s
+
+# target to generate assembly for a file
+Pol.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Polinomial.dir/build.make CMakeFiles/Polinomial.dir/Pol.cpp.s
+.PHONY : Pol.cpp.s
+
+src/Polinomial.o: src/Polinomial.cpp.o
+.PHONY : src/Polinomial.o
+
+# target to build an object file
+src/Polinomial.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Polinomial.dir/build.make CMakeFiles/Polinomial.dir/src/Polinomial.cpp.o
+.PHONY : src/Polinomial.cpp.o
+
+src/Polinomial.i: src/Polinomial.cpp.i
+.PHONY : src/Polinomial.i
+
+# target to preprocess a source file
+src/Polinomial.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Polinomial.dir/build.make CMakeFiles/Polinomial.dir/src/Polinomial.cpp.i
+.PHONY : src/Polinomial.cpp.i
+
+src/Polinomial.s: src/Polinomial.cpp.s
+.PHONY : src/Polinomial.s
+
+# target to generate assembly for a file
+src/Polinomial.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Polinomial.dir/build.make CMakeFiles/Polinomial.dir/src/Polinomial.cpp.s
+.PHONY : src/Polinomial.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -124,6 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Polinomial"
+	@echo "... Pol.o"
+	@echo "... Pol.i"
+	@echo "... Pol.s"
+	@echo "... src/Polinomial.o"
+	@echo "... src/Polinomial.i"
+	@echo "... src/Polinomial.s"
 .PHONY : help
 
 
