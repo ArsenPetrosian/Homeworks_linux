@@ -1,0 +1,3 @@
+/home/arsen/Homeworks_linux/Homework_4/exercise/CMakeFiles/Calculate_average.dir
+/home/arsen/Homeworks_linux/Homework_4/exercise/CMakeFiles/edit_cache.dir
+/home/arsen/Homeworks_linux/Homework_4/exercise/CMakeFiles/rebuild_cache.dir
