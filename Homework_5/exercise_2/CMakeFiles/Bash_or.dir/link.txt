@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Bash_or.dir/Bash_or.cpp.o -o Bash_or 
