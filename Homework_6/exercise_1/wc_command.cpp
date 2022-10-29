@@ -65,21 +65,18 @@ int main(int argc, char** argv)
     {
         int line_count = 0, word_count = 0, character_count = 0;
         char buffer[1];
-        int i = argc - 1;
-        while(--i > 0)
+        ssize_t bytes;
+        while((bytes = read(0, buffer, 1)) != 0)
         {
-            int j = strlen(argv[i]);
-            while(j > 0)
-            {
-                if(argv[i][j] == '\n')
-                    ++line_count;
-                if(argv[i][j] == ' ' || argv[i][j] == '\t' || argv[i][j] == '\n')
-                    ++word_count;
-                if(argv[i][j] != ' ' && argv[i][j] != '\n' && argv[i][j] != '\t')
-                    ++character_count;
-                    --j;
-            }
+            if(buffer[0] != ' ' && buffer[0] != '\n' && buffer[0] != '\t')
+                ++character_count;
+            if(buffer[0] == ' ' || buffer[0] == '\t' || buffer[0] == '\n' || buffer[0] == '\r')
+                ++word_count;
+            if(buffer[0] == '\n')
+                ++line_count;
         }
+        --character_count;
+        --word_count;
         std::cout << "There is " << line_count << " lines.\n";
         std::cout << "There is " << word_count << " words.\n";
         std::cout << "There is " << character_count << " characters.\n";
