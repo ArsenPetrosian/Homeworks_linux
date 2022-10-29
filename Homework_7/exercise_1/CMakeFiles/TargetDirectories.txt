@@ -1,0 +1,3 @@
+/home/arsen/Homeworks_linux/Homework_7/exercise_1/CMakeFiles/decrep.dir
+/home/arsen/Homeworks_linux/Homework_7/exercise_1/CMakeFiles/edit_cache.dir
+/home/arsen/Homeworks_linux/Homework_7/exercise_1/CMakeFiles/rebuild_cache.dir
