@@ -1,0 +1,3 @@
+/home/arsen/Homeworks_linux/Homework_3/exercise_2/build/CMakeFiles/Polinomial.dir
+/home/arsen/Homeworks_linux/Homework_3/exercise_2/build/CMakeFiles/edit_cache.dir
+/home/arsen/Homeworks_linux/Homework_3/exercise_2/build/CMakeFiles/rebuild_cache.dir

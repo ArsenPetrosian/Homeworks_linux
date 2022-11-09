@@ -1,3 +1,0 @@
-/home/arsen/Homeworks_linux/Homework_8/CMakeFiles/redir.dir
-/home/arsen/Homeworks_linux/Homework_8/CMakeFiles/edit_cache.dir
-/home/arsen/Homeworks_linux/Homework_8/CMakeFiles/rebuild_cache.dir

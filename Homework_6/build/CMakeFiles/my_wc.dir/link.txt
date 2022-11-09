@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/my_wc.dir/my_wc.cpp.o -o my_wc 

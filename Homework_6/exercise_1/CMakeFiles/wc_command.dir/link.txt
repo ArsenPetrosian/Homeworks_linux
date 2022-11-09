@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/wc_command.dir/wc_command.cpp.o -o wc_command 

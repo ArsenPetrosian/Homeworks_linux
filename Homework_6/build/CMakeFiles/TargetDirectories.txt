@@ -1,0 +1,3 @@
+/home/arsen/Homeworks_linux/Homework_6/build/CMakeFiles/my_wc.dir
+/home/arsen/Homeworks_linux/Homework_6/build/CMakeFiles/edit_cache.dir
+/home/arsen/Homeworks_linux/Homework_6/build/CMakeFiles/rebuild_cache.dir

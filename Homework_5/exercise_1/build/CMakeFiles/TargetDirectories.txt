@@ -1,0 +1,3 @@
+/home/arsen/Homeworks_linux/Homework_5/exercise_1/build/CMakeFiles/Bash_and.dir
+/home/arsen/Homeworks_linux/Homework_5/exercise_1/build/CMakeFiles/edit_cache.dir
+/home/arsen/Homeworks_linux/Homework_5/exercise_1/build/CMakeFiles/rebuild_cache.dir

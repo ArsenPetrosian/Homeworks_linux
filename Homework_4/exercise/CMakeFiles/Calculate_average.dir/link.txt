@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/Calculate_average.dir/Calculate_average.cpp.o -o Calculate_average 
