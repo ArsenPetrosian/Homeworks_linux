@@ -7,19 +7,27 @@ int main(int argc, char** argv)
 {
     if(argc == 1)
     {
-        std::cout << "There is no arguments.\n";
+        perror("There is no arguments");
         return 1;
     }
     if(argc > 2)
     {
-        std::cout << "There is too much arguments.\n";
+        perror("There is too much arguments");
         return 1;
     }
     int file = open(argv[1], O_RDONLY, 0644);
-    char buffer[1];
+    if(file < 0)
+    {
+        perror("can't open the file");
+        return 1;
+    }
+
+    char buffer[1024];
     ssize_t bytes;
-    while((bytes = read(file, buffer, 1)) != 0)
-            write(1, buffer, 1);
+    while((bytes = read(file, buffer, 1024)) != 0)
+    {
+        write(1, buffer, bytes);
+    }
     buffer[0] = '\n';
     write(1, buffer, 1);
     close(file);
