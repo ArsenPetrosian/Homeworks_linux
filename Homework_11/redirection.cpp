@@ -59,6 +59,7 @@ int main(int argc, char** argv)
     }
 
     int status;
+    wait(NULL);
     wait(&status);
     return status;
 }
