@@ -4,7 +4,6 @@
 #include <unistd.h>
 #include <string.h>
 #include <string>
-#include <iostream>
 
 int signal_id(char* argument)
 {
@@ -51,7 +50,6 @@ int signal_id(char* argument)
 
 void handle_sig(int signo, siginfo_t *info, void *context)
 {
-    std::cout << 221;
     write(STDOUT_FILENO, "Received signal with id: ", 25);
     std::string number = std::to_string(signo);
     const char* result = number.c_str();
