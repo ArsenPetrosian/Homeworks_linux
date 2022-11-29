@@ -48,11 +48,17 @@ int signal_id(char* argument)
     return 0;
 }
 
+const char* signal_output(int signo)
+{
+    std::string number = std::to_string(signo);
+    const char* result = number.c_str();
+    return result;
+}
+
 void handle_sig(int signo, siginfo_t *info, void *context)
 {
     write(STDOUT_FILENO, "Received signal with id: ", 25);
-    std::string number = std::to_string(signo);
-    const char* result = number.c_str();
+    const char* result = signal_output(signo);
     write(STDOUT_FILENO, result, strlen(result));
     write(STDOUT_FILENO, "\n", 1);
 }
