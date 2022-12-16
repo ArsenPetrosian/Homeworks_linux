@@ -1,18 +1,19 @@
+#include <cstddef>
+#include <iostream>
+#include <pthread.h>
+#include <stdexcept>
+
 #ifndef my_vector_is_defined
 #define my_vector_is_defined
 
-#include <iostream>
-#include <Atomic.h>
-
 namespace my_vector
 {
-
     template <typename T>
     class MyVector
     {
     public:
-        typedef size_t size_type;
-        typedef T &reference_type;
+        MyVector(const MyVector &rhs) = delete;
+        MyVector &operator=(const MyVector &rhs) = delete;
 
         class iterator
         {
@@ -20,10 +21,6 @@ namespace my_vector
             T *_ptr;
 
         public:
-            using value_type = T;
-            using pointer = value_type *;
-            using reference = value_type &;
-
             bool operator==(const iterator &other)
             {
                 return _ptr == other._ptr;
@@ -33,11 +30,11 @@ namespace my_vector
                 return _ptr != other._ptr;
             }
 
-            reference operator*()
+            T &operator*()
             {
                 return *_ptr;
             }
-            pointer operator->()
+            T *operator->()
             {
                 return _ptr;
             }
@@ -117,66 +114,59 @@ namespace my_vector
         size_t capacity() const;
 
         // Modifiers
-        void push_back(const T &value)
-        {
-            my_atomic::AtomicInt v;
-            thread_push_back(value, (void*)&v);
-        }
-
-        void pop_back()
-        {
-            my_atomic::AtomicInt v;
-            thread_pop_back((void*)&v);
-        }
-
+        void push_back(const T &value);
+        void pop_back();
         void clear();
 
-        //operator[] and at
-        reference_type operator[](size_type indx) const
-        {
-            return _arr[indx];
-        }
+        // operator[], at, front, back
+        T &operator[](size_t indx) const;
+        T &front();
+        T &back();
+        T &at(size_t indx) const;
 
-        reference_type at(size_type indx) const
-        {
-            if (indx >= _size)
-                throw std::runtime_error("Out of range!\n");
-            else
-                return _arr[indx];
-        }
+        void print();
 
-        reference_type front()
+        MyVector()
         {
-            return _arr[0];
-        }
-
-        reference_type back()
-        {
-            return _arr[_size - 1];
-        }
-
-        MyVector(size_type size)
-        {
-            T* arr = new T[size];
-            for(size_type i = 0; i < size; ++i)
-                arr[i] = 0;
-            _arr = arr;
+            _size = 0;
+            _capacity = 8;
+            _arr = new T[_capacity];
+            if (pthread_mutex_init(&_guard, NULL) != 0)
+                throw std::runtime_error("Unable to initialize the guard\n");
         }
 
         ~MyVector()
         {
             delete[] _arr;
-            _arr = nullptr;
-            _size = 0;
-            _capacity = 0;
+            pthread_mutex_destroy(&_guard);
         }
 
     private:
         T *_arr;
-        size_type _size;
-        size_type _capacity;
-        void thread_push_back(const T &value, void* input);
-        void thread_pop_back(void* input);
+        size_t _size;
+        size_t _capacity;
+        pthread_mutex_t _guard;
+
+        void lock()
+        {
+            pthread_mutex_lock(&_guard);
+        }
+        void unlock()
+        {
+            pthread_mutex_unlock(&_guard);
+        }
+        void resize()
+        {
+            if (_size < _capacity)
+                return;
+            T *new_arr = new T[_capacity *= 2];
+
+            for (int i = 0; i < _size; ++i)
+                new_arr[i] = _arr[i];
+
+            delete[] _arr;
+            _arr = new_arr;
+        }
     };
 }
 

@@ -1,7 +1,11 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.22)
 
-project(MyVector)
+project(vector)
 
-include_directories(include)
-file(GLOB SOURCES "src/*.cpp")
-add_executable(MyVector ${SOURCES})
+add_library(MyVector STATIC src/MyVector.cpp)
+
+add_executable(vector main.cpp)
+
+target_include_directories(vector PRIVATE
+"./include")
+target_link_libraries(vector PRIVATE MyVector)
